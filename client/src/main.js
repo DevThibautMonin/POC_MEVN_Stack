@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import Todolist from "../src/views/Todolist.vue"
 import './registerServiceWorker'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+createApp(Todolist).use(router).mount('#app')
