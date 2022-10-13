@@ -1,8 +1,7 @@
 <template>
   <div>
     <h1>Todos</h1>
-    <div v-for="todo in todos" v-bind:key="todo">
-      {{ todo.title }}
+    <div v-for="todo in todos" v-bind:key="todo" @click="deleteTodo(todo)">
       {{ todo.description }}
     </div>
     <div>
@@ -40,6 +39,14 @@ export default {
         this.todoService.getTodos().then((todos) => {
           this.todos = todos
           this.description = ""
+        })
+      })
+    },
+    deleteTodo(todo) {
+      event.preventDefault()
+      this.todoService.deleteTodo(todo).then(() => {
+        this.todoService.getTodos().then((todos) => {
+          this.todos = todos
         })
       })
     }

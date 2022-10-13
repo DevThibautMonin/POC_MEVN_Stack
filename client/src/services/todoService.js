@@ -1,8 +1,9 @@
 import axios from "axios"
 
-let url = "http://localhost:1234/todolist"
+let url = "http://localhost:1234/todolist/"
 
 export default class todoService {
+
   async getTodos() {
     const todos = await axios.get(url)
     return todos.data
@@ -14,4 +15,9 @@ export default class todoService {
     })
     return todos.data
   }
+
+  async deleteTodo(todo) {
+    await axios.delete(url + todo._id)
+  }
+
 }
