@@ -7,4 +7,11 @@ export default class todoService {
     const todos = await axios.get(url)
     return todos.data
   }
+
+  async createTodo(description) {
+    const todos = await axios.post(url, {
+      description : description
+    })
+    return todos.data
+  }
 }

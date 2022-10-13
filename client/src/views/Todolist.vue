@@ -5,6 +5,12 @@
       {{ todo.title }}
       {{ todo.description }}
     </div>
+    <div>
+      <form @submit="createTodo">
+        <input placeholder="Description" type="text" v-model="description">
+        <input type="submit" value="Create">
+      </form>
+    </div>
   </div>
 </template>
 
@@ -17,7 +23,8 @@ export default {
   data() {
     return {
       todos : undefined,
-      todoService : undefined
+      todoService : undefined,
+      description : undefined
     }
   },
  mounted() {
@@ -25,6 +32,16 @@ export default {
     this.todoService.getTodos().then((todos) => {
       this.todos = todos
     })
+  },
+  methods: {
+    createTodo() {
+      event.preventDefault()
+      this.todoService.createTodo(this.description).then(() => {
+        this.todoService.getTodos().then((todos) => {
+          this.todos = todos
+        })
+      })
+    }
   }
 }
 </script>
