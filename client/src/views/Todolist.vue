@@ -1,17 +1,21 @@
 <template>
   <div>
-    <h1>Todos</h1>
-    <div v-for="todo in todos" v-bind:key="todo" @click="deleteTodo(todo)">
-      {{ todo.description }}
-    </div>
+    <h1 class="todo__title">Todolist</h1>
     <div>
       <form @submit="createTodo">
         <input placeholder="Description" type="text" v-model="description">
         <input type="submit" value="Create">
       </form>
     </div>
+    <div class="todo__list" v-for="todo in todos" v-bind:key="todo" @click="deleteTodo(todo)">
+      {{ todo.description }}
+    </div>
   </div>
 </template>
+
+<style scoped>
+  @import "../../public/styles/todolist.css";
+</style>
 
 <script>
 

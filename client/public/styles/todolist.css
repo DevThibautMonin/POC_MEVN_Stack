@@ -1,0 +1,13 @@
+body {
+  background-color: "#C8C8C8";
+  display: flex;
+  justify-content: center;
+}
+
+.todo__title {
+  text-align: center;
+}
+
+.todo__list {
+  text-align: center;
+}
