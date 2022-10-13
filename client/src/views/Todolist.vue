@@ -39,6 +39,7 @@ export default {
       this.todoService.createTodo(this.description).then(() => {
         this.todoService.getTodos().then((todos) => {
           this.todos = todos
+          this.description = ""
         })
       })
     }
