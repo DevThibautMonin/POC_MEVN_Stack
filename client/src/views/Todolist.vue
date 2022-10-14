@@ -8,7 +8,7 @@
       </form>
     </div>
     <div class="todo__list" v-for="todo in todos" v-bind:key="todo" @click="deleteTodo(todo)">
-      {{ todo.description }}
+      <todoComponent :description="todo.description"/>
     </div>
   </div>
 </template>
@@ -20,9 +20,13 @@
 <script>
 
 import TodoService from "../services/todoService.js"
+import todoComponent from "../components/todoComponent.vue"
 
 export default {
   name: "Todolist",
+  components: {
+    todoComponent
+  },
   data() {
     return {
       todos : undefined,
